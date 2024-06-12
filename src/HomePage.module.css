@@ -1,0 +1,29 @@
+.card {
+  margin: 0;
+  padding: 1vw;
+  max-width: 20vw;
+  max-height: 50vh;
+  border-radius: 1vw;
+  display: flex; /* Making the div a flex container */
+  flex-direction: column;
+  justify-content: flex-start; /* Aligning items at the start of the main axis (vertically) */
+  color: black; /* Added for better visibility */
+  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%; /* Make the image take the full width of the .card container */
+  border-radius: 0.9vw;
+  margin: 0 0 -1vh 0; /* Negative bottom margin to reduce space */
+}
+
+.card h1, .subtitle {
+  margin: -1vh 0 0 0; /* Negative top margin to reduce space */
+}
+
+.card:hover{
+  background-color: rgb(255, 255, 255, 0.85);
+
+}
