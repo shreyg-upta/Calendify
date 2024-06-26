@@ -1,8 +1,5 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import * as styles from './HomePage.module.css'
-import Card from './card.jsx'
+import {useState } from 'react'
+import Card from '../atoms/card.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
