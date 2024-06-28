@@ -1,5 +1,5 @@
 import {useState } from 'react'
-import Card from '../Atoms/Card/Card'
+import Card from '../../Atoms/Card/Card'
 
 function App() {
   const [count, setCount] = useState(0)

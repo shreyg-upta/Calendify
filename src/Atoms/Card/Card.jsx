@@ -1,4 +1,4 @@
-import * as styles from './card.module.css'
+import * as styles from './Card.module.css'
 import React from 'react';
 
 function Card({imgURL, title, description, linkss}) {
