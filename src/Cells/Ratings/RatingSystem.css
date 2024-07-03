@@ -1,0 +1,131 @@
+/* General styles */
+.rating-system {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .rating-stats {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .rating-stats h2 {
+    margin-top: 0;
+  }
+  
+  .rating-stats-info {
+    margin-top: 10px;
+  }
+  
+  .rating-stat {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .rating-bar {
+    height: 2vh;
+    background-color: #2196f3;
+    border-radius: 1vh;
+  }
+  
+  .rating-bar-remaining {
+    height: 2vh;
+    background-color: #e0e0e0;
+    border-radius: 1vh;
+  }
+  
+  .rating-label {
+    margin-right: 1vw;
+  }
+  
+  .rating-star {
+    height: 5vh;
+    width: 5vh;
+  }
+  
+  .rating-star:hover {
+    cursor: pointer;
+  }
+  
+  .rating-options {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .rating-options h2 {
+    margin-top: 0;
+  }
+  
+  .rating-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .rating-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #e0e0e0;
+    cursor: pointer;
+  }
+  
+  .rating-button.active {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .selected-rating {
+    margin-top: 10px;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 800px) {
+    .rating-system {
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+    }
+  
+    .rating-stats, .rating-options {
+      width: 90%;
+      padding: 10px;
+    }
+  
+    .rating-stat {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .rating-label {
+      margin-bottom: 5px;
+      margin-right: 0;
+    }
+  
+    .rating-bar, .rating-bar-remaining {
+      width: 100%;
+    }
+  
+    .rating-star {
+      height: 4vh;
+      width: 4vh;
+    }
+  
+    .rating-buttons {
+      justify-content: center;
+    }
+  
+    .rating-options h3 {
+      text-align: center;
+    }
+  
+    .selected-rating {
+      text-align: center;
+    }
+  }
+  
