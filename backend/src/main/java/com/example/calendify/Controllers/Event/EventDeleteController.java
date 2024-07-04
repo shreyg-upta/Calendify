@@ -1,7 +1,6 @@
 package com.example.calendify.Controllers.Event;
 
 import com.example.calendify.Services.GoogleCalendarService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
