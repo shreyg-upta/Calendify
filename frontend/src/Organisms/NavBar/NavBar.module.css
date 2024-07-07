@@ -1,0 +1,64 @@
+.main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98vw;
+    background-color: white;
+    z-index: 1000;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1vw;
+    height: 60px;
+}
+.loggedIn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.main span{
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #000;
+}
+.googleButton{
+    /* max-width: 100px; */
+    /* margin-right: 40px; */
+    /* background-color: #0b57cf; */
+    color: white;
+}
+.createButton{
+    /* max-width: 100px; */
+    /* margin-right: 40px; */
+    background-color: #0b57cf;
+    color: white;
+}
+.pfp{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.inputBox{
+    background-color:#eff2ef;
+    border: none;
+    height: 40px;
+    width: 20vw;
+    border-radius: 5px;
+    padding: 0 10px;
+    font-size: 1em;
+    /* padding-left: 0px; */
+}
+.search{
+    display: flex;
+    align-items: flex-end;
+    gap:10px;
+
+}
+.inputBox:focus{
+    outline: none;
+    box-shadow: 0 3px 10px 0 #aeb1ae;
+    background-color: white;
+}

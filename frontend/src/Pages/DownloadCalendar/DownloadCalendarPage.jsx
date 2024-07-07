@@ -6,6 +6,7 @@ import BlackStar from "../../assets/BlackStar.png";
 import styles from "./DownloadCalendarPage.module.css";
 import axios from "axios";
 import RatingSystem from "../../Cells/Ratings/RatingSystem";
+import NavBar from "../../Organisms/NavBar/NavBar";
 
 function DownloadCalendarPage() {
   let { c } = useParams();
@@ -121,6 +122,7 @@ function DownloadCalendarPage() {
 
   return (
     <div className={styles.mainerMain}>
+      <NavBar />
       <div className={styles.main}>
         <div className={styles.header}>
           <div className={styles.title}>

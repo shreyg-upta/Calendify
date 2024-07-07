@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useReducer, useEffect} from 'react';
 import styles from './CreatePopup.module.css';
 import { FaTimes, FaClock, FaCalendar } from 'react-icons/fa'; // Import clock icons from react-icons library
 
@@ -10,39 +10,51 @@ function CreatePopup() {
     const [endTime, setEndTime] = useState('');
     const [description, setDescription] = useState('');
     const [tag, setTag] = useState('');
+    const [savedEvents, dispatchCalEvent] = useReducer(
+        savedEventsReducer,
+        [],
+        initEvents
+      );
+    function savedEventsReducer(state, { type, payload }) {
+        switch (type) {
+          case "push":
+            return [...state, payload];
+          case "update":
+            return state.map((evt) =>
+              evt.id === payload.id ? payload : evt
+            );
+          case "delete":
+            return state.filter((evt) => evt.id !== payload.id);
+          default:
+            throw new Error();
+        }
+      }
+      function initEvents() {
+        const storageEvents = localStorage.getItem("savedEvents");
+        const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
+        return parsedEvents;
+      }
+      useEffect(() => {
+        localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
+      }, [savedEvents]);
 
-    const handleSave = () => {
-        const eventData = {
-            title,
-            date,
-            startTime,
-            endTime,
-            description,
-            tag
+      function handleSubmit(e) {
+        e.preventDefault();
+        const calendarEvent = {
+          title,
+          description,
+          date,
+          startTime,
+          endTime
         };
-
-        fetch('PiKG URL DAAL', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(eventData),
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            console.log('Data successfully uploaded to server:', eventData);
-            // Optionally handle success here (e.g., show success message)
-        })
-        .catch(error => {
-            console.error('Error uploading data:', error);
-            // Optionally handle error here (e.g., show error message)
-        });
-
-        // Close the popup after saving
-        setShow(false);
-    };
+        // if (selectedEvent) {
+        //   dispatchCalEvent({ type: "update", payload: calendarEvent });
+        // } else {
+          dispatchCalEvent({ type: "push", payload: calendarEvent });
+        // }
+    
+        // setShowEventModal(false);
+      }
 
     return (
         show && (
@@ -129,7 +141,7 @@ function CreatePopup() {
                         Yellow
                     </label>
                 </div>
-                <button className={styles.buttonn} onClick={handleSave}>
+                <button className={styles.buttonn} onClick={handleSubmit}>
                     Save
                 </button>
             </div>
