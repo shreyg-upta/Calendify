@@ -3,11 +3,24 @@ import React from 'react';
 import BlackStar from "../../assets/BlackStar.png";
 function Card({imgURL, title, description, calendarID, linkss}) {
   const product = {
-    rating: 4.5,
-    noOfReviews: 100,
+    rating: 0,
+    noOfReviews: 0,
   };
+  if(!linkss){
+    return(
+    <div className={styles.card}>
+    <img src={imgURL}/>
+    <h2>{title}</h2>
+    <h3>
+          {product.rating} <img src={BlackStar} alt="Star" /> 
+          <span className={styles.blue}> ({product.noOfReviews} reviews)</span>
+    </h3>
+    <span className={styles.subtitle}>{description}</span>
+  </div>
+    )
+  }
   return (
-    <a href ={linkss+calendarID}>
+    <a href ={"http://localhost:3000/calendars/"+calendarID}>
       <div className={styles.card}>
         <img src={imgURL}/>
         <h2>{title}</h2>
@@ -27,7 +40,7 @@ Card.defaultProps = {
   title: "Title",
   description: "Description",
   calendarID: " ",
-  linkss: "http://localhost:3000/calendars/"
+  linkss: true,
 }
 
 export default Card;

@@ -2,7 +2,7 @@
     margin: 0;
     padding: 1vw;
     max-width: 18vw;
-    height: 34.5vh;
+    height: 36vh;
     border-radius: 1vw;
     display: flex; /* Making the div a flex container */
     flex-direction: column;
@@ -14,12 +14,12 @@
   }
   
   .card img {
-    width: 28.5vh; /* Make the image take the full width of the .card container */
+    width: 100%; /* Make the image take the full width of the .card container */
     border-radius: 0.9vw;
     margin: 0 0 -1vh 0; /* Negative bottom margin to reduce space */
-    height: 16vh;
-  object-fit: cover;
-  object-position: 25% 25%; 
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+object-position: 25% 25%; 
     
   }
   
