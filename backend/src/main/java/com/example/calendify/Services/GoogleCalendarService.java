@@ -11,10 +11,11 @@ import lombok.Getter;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.util.Map;
 
 @Getter
 @Service
@@ -22,10 +23,19 @@ public class GoogleCalendarService {
     private static final String APPLICATION_NAME = "Calendar Management";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     private Calendar calendarService;
+    private static final String LOCAL_CREDENTIALS_FILE_PATH = "f";
+    private static final String DOCKER_CREDENTIALS_FILE_PATH = "f";
 
     @PostConstruct
     public void init() throws GeneralSecurityException, IOException {
-        GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream("src/main/resources/dotted-module-427217-f5-4605446de900.json"))
+        String credentialsFilePath = new File(DOCKER_CREDENTIALS_FILE_PATH).isFile() ? DOCKER_CREDENTIALS_FILE_PATH : LOCAL_CREDENTIALS_FILE_PATH;
+
+        boolean fileExists = new File(credentialsFilePath).isFile();
+        if (!fileExists) {
+            throw new FileNotFoundException("Google credentials file not found: " + credentialsFilePath);
+        }
+
+        GoogleCredentials credentials = GoogleCredentials.fromStream(new FileInputStream(credentialsFilePath))
                 .createScoped(CalendarScopes.CALENDAR);
         calendarService = new Calendar.Builder(
                 GoogleNetHttpTransport.newTrustedTransport(),
@@ -35,6 +45,4 @@ public class GoogleCalendarService {
                 .setApplicationName(APPLICATION_NAME)
                 .build();
     }
-
-
 }
