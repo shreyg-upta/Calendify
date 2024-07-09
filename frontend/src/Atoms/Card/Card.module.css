@@ -1,29 +1,57 @@
 .card {
     margin: 0;
     padding: 1vw;
-    max-width: 20vw;
-    max-height: 50vh;
+    max-width: 18vw;
+    height: 34.5vh;
     border-radius: 1vw;
     display: flex; /* Making the div a flex container */
     flex-direction: column;
     justify-content: flex-start; /* Aligning items at the start of the main axis (vertically) */
-    color: white; /* Added for better visibility */
+    color: black; /* Added for better visibility */
     box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
-    background-color: rgb(56, 56, 56);
+    background-color: #f0f2ef;
     cursor: pointer;
   }
   
   .card img {
-    width: 100%; /* Make the image take the full width of the .card container */
+    width: 28.5vh; /* Make the image take the full width of the .card container */
     border-radius: 0.9vw;
     margin: 0 0 -1vh 0; /* Negative bottom margin to reduce space */
+    height: 16vh;
+  object-fit: cover;
+  object-position: 25% 25%; 
+    
   }
   
-  .card h1, .subtitle {
+  .subtitle {
     margin: -1vh 0 0 0; /* Negative top margin to reduce space */
+    font-size:0.9em;
+    font-weight: 400;
   }
   
   .card:hover{
-    background-color: rgba(87, 87, 87, 0.85);
+    background-color: #e3e3e3;
   
+  }
+  .card h3 img{
+    width: 1vw;
+    height: 1vw;
+    margin: 0 0 -0.2vh 0;
+  }
+  .card h3{
+    margin:0;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1vh;
+  }
+  .card h2{
+    margin:0;
+    margin-top:2vh;
+    margin-bottom: 0;
+    font-size: 1.1em;
+  }
+  .blue{
+    color: #575757;
+    font-weight: 400;
   }
