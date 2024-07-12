@@ -1,0 +1,48 @@
+.container {
+    border: 1px solid #E5E7EB; /* border-gray-200 */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .headerText {
+    font-size: 0.875rem; /* text-sm */
+    margin-top: 0.25rem; /* mt-1 */
+  }
+  
+  .dayNumber {
+    font-size: 0.875rem; /* text-sm */
+    padding: 0.25rem; /* p-1 */
+    margin: 0.25rem 0; /* my-1 */
+    text-align: center;
+  }
+  
+  .currentDay {
+    background-color: #2563EB; /* bg-blue-600 */
+    color: white;
+    border-radius: 9999px; /* rounded-full */
+    width: 1.75rem; /* w-7 */
+  }
+  
+  .eventsContainer {
+    flex: 1;
+    cursor: pointer;
+  }
+  
+  .event {
+    padding: 0.25rem; /* p-1 */
+    margin-right: 0.75rem; /* mr-3 */
+    color: #4B5563; /* text-gray-600 */
+    font-size: 0.875rem; /* text-sm */
+    border-radius: 0.25rem; /* rounded */
+    margin-bottom: 0.25rem; /* mb-1 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* truncate */
+  }
+  

@@ -1,93 +1,182 @@
-.main{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 98vw;
-    background-color: white;
-    z-index: 1000;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1vw;
-    height: 60px;
+.main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 98vw;
+  background-color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1vw;
+  height: 60px;
 }
-.loggedIn{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-.main span{
-    font-size: 1.5em;
-    font-weight: 600;
-    color: #000;
-}
-.googleButton{
-    /* max-width: 100px; */
-    /* margin-right: 40px; */
-    /* background-color: #0b57cf; */
-    color: white;
-}
-.createButton{
-    /* max-width: 100px; */
-    /* margin-right: 40px; */
-    background-color: #0b57cf;
-    color: white;
-}
-.pfp{
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-.search {
-    position: relative;
-    display: flex;
-    align-items: center;
-  }
-  
-  .searchIcon {
-    position: relative;
-    width: 25vw;
-  }
-  
-  .searchIcon1,
-  .searchIcon2 {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .searchIcon1 {
-    left: 0.5vw;
-  }
-  
-  .searchIcon2 {
-    right: 0.5vw;
-  }
-  
-  .inputBox {
-    background-color: #eff2ef;
-    border: none;
-    height: 40px;
-    width: calc(100% - 5vw);
-    border-radius: 5px;
-    padding: 0 2.5vw;
-    font-size: 1em;
-  }
-  
-.search{
-    display: flex;
-    align-items: flex-end;
-    gap:1vw;
 
+.loggedIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
-.inputBox:focus{
-    outline: none;
-    box-shadow: 0 3px 10px 0 #aeb1ae;
-    background-color: white;
+
+.main span {
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #000;
+}
+
+.googleButton {
+  width: 7.5vw;
+  margin-right: 10px;
+  background-color: #0b56cfde;
+  color: white;
+  font-size: 0.9em;
+  padding: 0.7vw;
+  border-radius: 0.3vw;
+}
+
+.googleButton:hover {
+  background-color: #0b56cf;
+}
+
+.createButton {
+  background-color: #0b57cf;
+  color: white;
+}
+
+.pfp {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.searchIcon {
+  position: relative;
+  width: 25vw;
+}
+
+.searchIcon1,
+.searchIcon2 {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.searchIcon1 {
+  left: 0.5vw;
+}
+
+.searchIcon2 {
+  right: 0.5vw;
+}
+
+.inputBox {
+  background-color: #eff2ef;
+  border: none;
+  height: 40px;
+  width: calc(100% - 5vw);
+  border-radius: 5px;
+  padding: 0 2.5vw;
+  font-size: 1em;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  justify-content: flex-end;
+  width: 42.5vw;
+}
+
+.inputBox:focus {
+  outline: none;
+  box-shadow: 0 3px 10px 0 #aeb1ae;
+  background-color: white;
+}
+
+.header {
+  padding: 0.5rem 1rem;
+  width: 31vw;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 0.5rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.title {
+  margin-right: 2.5rem;
+  font-size: 1.25rem;
+  color: #6b7280;
+  font-weight: bold;
+}
+
+.button {
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  margin-right: 1.25rem;
+}
+
+.sppan:hover {
+  cursor: pointer;
+}
+
+.iconButton {
+  cursor: pointer;
+  color: #4b5563;
+  margin: 0 0.5rem;
+  padding: 0;
+}
+
+.lrbutton {
+  padding: 0.25rem 1rem;
+  margin-right: 0.25rem;
+}
+
+.month {
+  margin-left: 1rem;
+  font-size: 1.25rem;
+  color: #6b7280;
+  font-weight: bold;
+}
+
+.imgg {
+  width: 3.5vh;
+  height: 3.5vh;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    justify-content: center;
+  }
+
+  .main span {
+    display: none;
+  }
+
+  .search {
+    width: 100%;
+    justify-content: center;
+    gap: 0.5vw;
+  }
+
+  .inputBox {
+    width: calc(100% - 4vw);
+  }
+
+  .googleButton {
+    width: auto;
+    padding: 0.5vw;
+  }
 }

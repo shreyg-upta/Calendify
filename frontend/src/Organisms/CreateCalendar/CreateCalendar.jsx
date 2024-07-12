@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./CreateCalendar.module.css";
 import Card from "../../Atoms/Card/Card";
+import GlobalContext from "../../GlobalContext";
+import { useContext } from "react";
 
 function CreateCalendar() {
   const [title, setTitle] = useState("");
@@ -10,7 +12,9 @@ function CreateCalendar() {
   const [titleFocus, setTitleFocus] = useState(false);
   const [subtitleFocus, setSubtitleFocus] = useState(false);
   const [descriptionFocus, setDescriptionFocus] = useState(false);
-
+  // const baseURL;
+  // baseURL/api/calendar/create()// summary, description, time zone, location
+  const { setShowCreateCalendar } = useContext(GlobalContext);
   const handleChange = (event) => {
     if (event.target.value.length < 5001) {
       setDescription(event.target.value);
@@ -36,12 +40,31 @@ function CreateCalendar() {
       textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
     }
   }, [description]);
+  const [imageSrc, setImageSrc] = useState(null);
+  const inputRef = useRef(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImageSrc(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setImageSrc(null);
+    }
+  };
+  const handleNext = () => {
+    setShowCreateCalendar(false);
+  };
 
   return (
+    <div className={styles.shadow}>
     <div className={styles.main}>
       <div className={styles.titlee}>
         <span>Create Calendar</span>
-        <button>Next</button>
+        <button onClick={handleNext}>Next</button>
       </div>
       <div className={styles.superinpoo}>
       <div className={styles.inpoo}>
@@ -115,16 +138,34 @@ function CreateCalendar() {
         <h2>Thumbnail</h2>
         <span className={styles.thumbnailtext}>Upload Thumbnail</span>
         <div className={styles.thumbnail}>  
-            <input className={styles.excelUpload} type="file" id="file" accept="image/*" />          
+        <label className={styles.picture} htmlFor="picture__input" tabIndex="0">
+        <span className={styles.picture__image}>
+          {imageSrc ? <img src={imageSrc} alt="Selected" className={styles.picture__img} /> : 'Choose an image'}
+        </span>
+      </label>
+      <input
+        type="file"
+        name="picture__input"
+        id="picture__input"
+        className={styles.picture__input}
+        onChange={handleFileChange}
+        ref={inputRef}
+      />        
         </div>
         <h2>Visibility</h2>
         <div className={styles.visibility}>
-            <input type="radio" id="public" name="visibility" value="public"/>
-            <label for="public">Public</label>
-            <input type="radio" id="private" name="visibility" value="private"/>
-            <label for="private">Private</label>
-            <input type="radio" id="unlisted" name="visibility" value="unlisted"/>
-            <label for="unlisted">Unlisted</label>
+        <div className={styles.radioContainer}>
+              <input type="radio" id="public" name="visibility" value="public"/>
+              <label htmlFor="public">Public</label>
+            </div>
+            <div className={styles.radioContainer}>
+              <input type="radio" id="private" name="visibility" value="private"/>
+              <label htmlFor="private">Private</label>
+            </div>
+            <div className={styles.radioContainer}>
+              <input type="radio" id="unlisted" name="visibility" value="unlisted"/>
+              <label htmlFor="unlisted">Unlisted</label>
+            </div>
         </div>
       </div>
       <div className={styles.card}>
@@ -133,9 +174,11 @@ function CreateCalendar() {
           title={title}
           description={subtitle}
           linkss={false}
+          imgURL={imageSrc}
         />
         </div>
       </div>
+    </div>
     </div>
   );
 }

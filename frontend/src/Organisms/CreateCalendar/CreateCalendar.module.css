@@ -12,6 +12,18 @@
     overflow: hidden;
     display: flex;
     flex-direction: column; 
+    z-index: 1001;
+}
+
+.shadow{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+
 }
 
 .titlee{
@@ -122,4 +134,69 @@
  }
  .thumbnail h2{
     margin-bottom: 0;
+
  }
+ .picture__input {
+    display: none;
+  }
+  
+  .picture {
+    
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    border: 2px dashed currentcolor;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: color 300ms ease-in-out, background 300ms ease-in-out;
+    outline: none;
+    width: 10vw;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+  }
+  
+  .picture:hover {
+    color: #777;
+    background: #ccc;
+  }
+  
+  .picture:active {
+    border-color: turquoise;
+    color: turquoise;
+    background: #eee;
+  }
+  
+  .picture:focus {
+    color: #777;
+    background: #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .picture__img {
+    max-width: 100%;
+  }
+  
+ .excelUpload{
+    cursor: pointer;
+    padding-left: 6%;
+    align-self: flex-start;
+    border: 1px dashed rgba(0, 0, 0, 0.4);
+    position: relative;
+    display: flex;
+    padding: 20px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 3px;
+    transition: 0.2s;
+}
+.radioContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .radioContainer input[type="radio"] {
+    margin-right: 8px; /* Space between the radio button and label */
+  }

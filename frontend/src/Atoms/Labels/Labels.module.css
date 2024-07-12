@@ -1,0 +1,21 @@
+.label {
+    color: #718096;
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  
+  .checkbox {
+    appearance: none;
+    height: 1.25rem;
+    width: 1.25rem;
+    border: 2px solid currentColor;
+    border-radius: 0.25rem;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  
+  .checked {
+    background-color: var(--bg);
+  }
+  

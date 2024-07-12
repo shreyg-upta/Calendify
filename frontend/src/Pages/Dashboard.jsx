@@ -7,7 +7,7 @@ function App() {
   const name = "Guest";
   return (
     <>
-      <NavBar />
+      <NavBar isCalendarVisible={false} />
       <div className={styles.main}>
       <div className={styles.typebox}>
           <h1>{name}, you might like</h1>
@@ -157,7 +157,21 @@ function App() {
             />
           </div>
         </div>
-      </div>
+        <div className={styles.typoobox}>
+      <h1>Hi there!</h1>
+      <p>We are still in our alpha launch phase and are constantly working on the project.<br/> Please give recommendations, feedback, and queries via the form below. Your feedback is highly appreciated.</p>
+      <form className={styles.form}>
+        <input type="text" placeholder="Name" className={styles.input}/>
+        <input type="email" placeholder="Email" className={styles.input}/>
+        <textarea placeholder="Feedback" className={styles.textarea}/>
+        <button type="submit" className={styles.button}>Submit</button>
+      </form>
+      <h2 className={styles.madeBy}>Made by 2 BITSians, Inspired by Google</h2>
+      <p>Follow <a href='/about'>this link</a> to get to know more <a href='/about'>about us</a></p>
+      <p>This website's design draws massive inspiration from various Google services, namely Google Calendar, YouTube, Play Store, and Chrome Web Store.</p>
+      <p>© 2024 BITS Goa</p>
+    </div>
+        </div>
     </>
   );
 }
