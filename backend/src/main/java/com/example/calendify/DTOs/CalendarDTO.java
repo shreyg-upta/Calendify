@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class CalendarDTO {
-    private String summary;
-    //title is description
-    private String description;
-    private String timeZone;
-    private String location;
+    private String calendarId;
+    private Long userId;
+    private double rating;
+    private String labels;
+    private String type; // public, private, or unlisted
 }

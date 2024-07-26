@@ -1,6 +1,6 @@
 package com.example.calendify.Controllers.Calendar;
 
-import com.example.calendify.DTOs.CalendarDTO;
+import com.example.calendify.DTOs.RequestCalendarDTO;
 import com.example.calendify.Services.GoogleCalendarService;
 import com.google.api.services.calendar.model.Calendar;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class CalendarUpdateController {
     private GoogleCalendarService googleCalendarService;
 
     @PutMapping
-    public String updateCalendar(@RequestParam String calendarId, @RequestBody CalendarDTO calendarDTO) throws GeneralSecurityException, IOException {
+    public String updateCalendar(@RequestParam String calendarId, @RequestBody RequestCalendarDTO calendarDTO) throws GeneralSecurityException, IOException {
         Calendar calendar = googleCalendarService.getCalendarService().calendars().get(calendarId).execute();
 
         if (calendarDTO.getSummary() != null) {

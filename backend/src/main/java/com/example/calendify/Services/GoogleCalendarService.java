@@ -5,6 +5,7 @@ import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.calendar.Calendar;
 import com.google.api.services.calendar.CalendarScopes;
+import com.google.api.services.calendar.model.Events;
 import com.google.auth.http.HttpCredentialsAdapter;
 import com.google.auth.oauth2.GoogleCredentials;
 import lombok.Getter;
@@ -23,8 +24,8 @@ public class GoogleCalendarService {
     private static final String APPLICATION_NAME = "Calendar Management";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     private Calendar calendarService;
-    private static final String LOCAL_CREDENTIALS_FILE_PATH = "f";
-    private static final String DOCKER_CREDENTIALS_FILE_PATH = "f";
+    private static final String LOCAL_CREDENTIALS_FILE_PATH = "backend/src/main/resources/calendify-428717-ffbb8cd8db80.json";
+    private static final String DOCKER_CREDENTIALS_FILE_PATH = "/app/calendify-428717-ffbb8cd8db80.json";
 
     @PostConstruct
     public void init() throws GeneralSecurityException, IOException {
@@ -44,5 +45,13 @@ public class GoogleCalendarService {
         )
                 .setApplicationName(APPLICATION_NAME)
                 .build();
+    }
+
+    public com.google.api.services.calendar.model.Calendar getCalendarDetails(String calendarId) throws IOException {
+        return calendarService.calendars().get(calendarId).execute();
+    }
+
+    public Events getCalendarEvents(String calendarId) throws IOException {
+        return calendarService.events().list(calendarId).execute();
     }
 }

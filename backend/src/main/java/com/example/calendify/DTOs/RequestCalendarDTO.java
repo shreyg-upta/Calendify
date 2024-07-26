@@ -1,15 +1,15 @@
 package com.example.calendify.DTOs;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+
+@Data
 @Getter
 @Setter
-public class EventDTO {
+public class RequestCalendarDTO {
     private String summary;
-    private String location;
     private String description;
-    private String colorId;
-    private String startDateTime;
-    private String endDateTime;
     private String timeZone;
+    private String location;
 }

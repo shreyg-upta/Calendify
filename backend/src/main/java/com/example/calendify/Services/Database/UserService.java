@@ -1,4 +1,4 @@
-package com.example.calendify.Services;
+package com.example.calendify.Services.Database;
 
 import com.example.calendify.Entities.User;
 import com.example.calendify.Repositories.UserRepository;
@@ -11,13 +11,14 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User saveUser(String email, String refreshToken) {
-        User user = userRepository.findByEmail(email);
-        if (user == null) {
-            user = new User();
-            user.setEmail(email);
-        }
+    public void saveUser(String email, String refreshToken) {
+        User user = new User();
+        user.setEmail(email);
         user.setRefreshToken(refreshToken);
-        return userRepository.save(user);
+        userRepository.save(user);
+    }
+
+    public boolean isUserExists(String email) {
+        return userRepository.findByEmail(email) != null;
     }
 }

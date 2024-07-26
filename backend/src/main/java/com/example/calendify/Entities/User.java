@@ -1,13 +1,13 @@
 package com.example.calendify.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -15,5 +15,7 @@ public class User {
     private Long id;
 
     private String email;
-    private String refreshToken;
+
+    // @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    // private List<Calendar> calendars;
 }
